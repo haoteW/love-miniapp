@@ -13,7 +13,7 @@ function buildReportText(report) {
   return [
     `${report.year} 年度恋爱报告`,
     `恋爱总天数：${stats.loveDays || 0} 天`,
-    `日记：${stats.diaryCount || 0} 篇｜照片：${stats.photoCount || 0} 张｜完成心愿：${stats.completedWishCount || 0} 个`,
+    `日记：${stats.diaryCount || 0} 篇｜约会：${stats.checkinCount || 0} 次｜照片：${stats.photoCount || 0} 张｜完成心愿：${stats.completedWishCount || 0} 个`,
     `最常记录的月份：${stats.topMonth || '暂无记录'}`,
     '',
     report.content || '',
@@ -93,6 +93,7 @@ Page({
     return [
       { label: '恋爱天数', value: stats.loveDays || 0, unit: '天' },
       { label: '新增日记', value: stats.diaryCount || 0, unit: '篇' },
+      { label: '约会打卡', value: stats.checkinCount || 0, unit: '次' },
       { label: '上传照片', value: stats.photoCount || 0, unit: '张' },
       { label: '完成心愿', value: stats.completedWishCount || 0, unit: '个' },
       { label: '新增纪念日', value: stats.anniversaryCount || 0, unit: '个' },
@@ -141,6 +142,14 @@ Page({
   },
 
   createShareImage() {
-    wx.showToast({ title: '分享图功能开发中', icon: 'none' });
+    if (!this.data.report) {
+      wx.showToast({ title: '请先生成报告', icon: 'none' });
+      return;
+    }
+    wx.setStorageSync('currentYearReportPoster', this.data.report);
+    const query = this.data.report._id ? `?reportId=${encodeURIComponent(this.data.report._id)}` : '';
+    wx.navigateTo({
+      url: `/pages/report-poster/index${query}`
+    });
   }
 });

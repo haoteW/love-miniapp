@@ -1,0 +1,22 @@
+<view class="page poster-page">
+  <view class="poster-hero">
+    <view class="poster-title">年度报告海报</view>
+    <view class="poster-subtitle">用 Canvas 绘制真实数据，适合预览和保存分享</view>
+  </view>
+
+  <view wx:if="{{!report}}" class="section card empty-card">
+    <view class="empty-title">还没有报告数据</view>
+    <view class="empty-text">请先在年度报告页生成报告，再进入海报页。</view>
+  </view>
+
+  <view wx:else class="section card poster-panel">
+    <view class="canvas-wrap">
+      <canvas id="posterCanvas" type="2d" class="poster-canvas"></canvas>
+    </view>
+    <view class="poster-actions">
+      <button class="ghost-button action-button" bindtap="generatePoster">重新生成</button>
+      <button class="primary-button action-button" bindtap="previewPoster">预览图片</button>
+    </view>
+    <button class="save-button" bindtap="savePoster">保存到相册</button>
+  </view>
+</view>

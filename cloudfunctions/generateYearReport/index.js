@@ -114,6 +114,7 @@ function buildStats(year, loveStartDate, diaries, wishes, anniversaries, checkin
   return {
     loveDays,
     diaryCount: diaries.length,
+    checkinCount: checkins.length,
     photoCount: countImages(diaries) + countImages(wishes) + countImages(checkins),
     completedWishCount: completedWishes.length,
     anniversaryCount: anniversaries.length,

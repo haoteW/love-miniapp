@@ -13,6 +13,7 @@ pages/wishes/wishes                心愿清单
 pages/wish-edit/wish-edit          新增/编辑心愿
 pages/ai-letter/index              AI 情书
 pages/year-report/index            年度恋爱报告
+pages/report-poster/index          年度报告海报
 pages/bind/bind                    双人绑定关系
 pages/mine/mine                    我的、设置入口
 ```
