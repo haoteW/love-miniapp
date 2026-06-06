@@ -7,13 +7,15 @@
     <button class="ghost-button add-button" bindtap="add">新增</button>
   </view>
 
-  <view wx:for="{{items}}" wx:key="id" class="card wish-card" data-id="{{item._id || item.id}}" bindtap="toggleDone">
+  <view wx:for="{{items}}" wx:key="id" class="card wish-card">
     <view class="wish-row">
       <view>
         <view class="item-title">{{item.title}}</view>
         <view class="subtitle">{{item.date || item.createdAt}} · {{item.category}}</view>
       </view>
-      <view class="status {{item.status}}">{{item.statusText}}</view>
+      <button class="status {{item.status}}" data-id="{{item._id || item.id}}" catchtap="toggleDone">
+        {{item.statusText}}
+      </button>
     </view>
     <view wx:if="{{item.images && item.images.length}}" class="image-grid">
       <image

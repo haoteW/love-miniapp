@@ -25,9 +25,17 @@
 }
 
 .status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 112rpx;
+  height: 52rpx;
+  margin: 0;
   padding: 10rpx 18rpx;
   border-radius: 999rpx;
   font-size: 24rpx;
+  line-height: 1;
+  box-sizing: border-box;
 }
 
 .todo {
