@@ -38,7 +38,15 @@
 
 ## generateLoveLetter
 
-生成 AI 情书。当前使用 mock 逻辑生成文案，代码中已预留真实 AI API 调用位置。
+生成 AI 情书。云函数会从环境变量读取 `AI_API_KEY`，不会把密钥暴露给小程序前端。
+
+可选环境变量：
+
+- `AI_API_KEY`：必填，AI 服务 API Key。
+- `AI_API_URL`：可选，默认 `https://api.deepseek.com/chat/completions`。
+- `AI_MODEL`：可选，默认 `deepseek-v4-flash`。
+
+如果缺少 `AI_API_KEY`，云函数会返回明确错误提示。
 
 ## setupDatabase
 

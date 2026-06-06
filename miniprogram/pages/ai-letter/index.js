@@ -98,26 +98,6 @@ Page({
     };
   },
 
-  buildLocalMock(payload) {
-    const { style, inputs, context } = payload;
-    const diaryText = context.diaries.map((item) => item.title || item.content).filter(Boolean).slice(0, 3).join('、');
-    const wishText = context.completedWishes.map((item) => item.title).filter(Boolean).slice(0, 3).join('、');
-    const lines = [
-      `亲爱的，这是一封${style}风格的情书。`,
-      `我们已经一起走过 ${context.loveDays} 天，每一天都在悄悄把喜欢变得更具体。`
-    ];
-
-    if (inputs.words) lines.push(`我想对你说：${inputs.words}`);
-    if (inputs.smallThings) lines.push(`最近让我记住的小事是：${inputs.smallThings}。`);
-    if (inputs.emotion) lines.push(`我想把「${inputs.emotion}」认真传达给你。`);
-    if (diaryText) lines.push(`最近的日记里有 ${diaryText}，这些都是我们的小小宇宙。`);
-    if (wishText) lines.push(`我们完成过的心愿，比如 ${wishText}，都让我更期待以后。`);
-    if (context.albumCount) lines.push(`相册里的 ${context.albumCount} 张照片，也在替我记住你。`);
-    lines.push('未来还有很多天，我都想和你一起慢慢写下去。');
-
-    return lines.join('\n\n');
-  },
-
   async generateLetter() {
     const payload = this.getPayload();
     this.setData({ isGenerating: true, isSaved: false });
@@ -128,7 +108,11 @@ Page({
         name: 'generateLoveLetter',
         data: payload
       });
-      const content = res.result && res.result.content;
+      const result = res.result || {};
+      if (result.ok === false) {
+        throw new Error(result.message || '生成失败，请稍后重试');
+      }
+      const content = result.content;
       if (!content) {
         throw new Error('Empty love letter content');
       }
@@ -137,12 +121,15 @@ Page({
         isGenerating: false
       });
     } catch (error) {
-      console.warn('生成情书失败，使用本地 mock 文案', error);
+      console.warn('生成情书失败', error);
       this.setData({
-        generatedContent: this.buildLocalMock(payload),
         isGenerating: false
       });
-      wx.showToast({ title: '已使用本地生成', icon: 'none' });
+      wx.showModal({
+        title: '生成失败',
+        content: error.message || 'AI API 调用失败，请稍后重试。',
+        showCancel: false
+      });
       return;
     } finally {
       wx.hideLoading();
