@@ -50,6 +50,18 @@
 
 真实 AI 接口通常会超过云函数默认 3 秒超时，`generateLoveLetter/config.json` 已将云函数超时时间配置为 30 秒。修改后需要在微信开发者工具中重新上传并部署 `generateLoveLetter` 云函数，云端配置才会生效。
 
+## generateYearReport
+
+生成年度恋爱报告。云函数会读取当前用户和绑定关系，统计指定年份的日记、照片、心愿、纪念日和打卡记录，然后保存到 `year_reports` 集合。
+
+环境变量：
+
+- `DEEPSEEK_API_KEY`：可选，DeepSeek API Key。缺少时会返回 mock 年度报告，保证功能可用。
+- `DEEPSEEK_API_URL`：可选，默认 `https://api.deepseek.com/chat/completions`。
+- `DEEPSEEK_MODEL`：可选，默认 `deepseek-v4-flash`。
+
+`generateYearReport/config.json` 已将云函数超时时间配置为 30 秒。修改后需要在微信开发者工具中重新上传并部署 `generateYearReport` 云函数。
+
 ## setupDatabase
 
 一次性初始化数据库集合：
@@ -62,4 +74,5 @@
 - `checkins`
 - `wishes`
 - `love_letters`
+- `year_reports`
 - `reminders`

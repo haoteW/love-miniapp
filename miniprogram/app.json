@@ -11,6 +11,7 @@
     "pages/wishes/wishes",
     "pages/wish-edit/wish-edit",
     "pages/ai-letter/index",
+    "pages/year-report/index",
     "pages/bind/bind",
     "pages/record-detail/record-detail",
     "pages/profile/profile",

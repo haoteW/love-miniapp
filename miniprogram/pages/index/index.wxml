@@ -12,6 +12,7 @@
     <view class="quick-item" bindtap="goCheckinEdit">约会打卡</view>
     <view class="quick-item" bindtap="goWishEdit">加心愿</view>
     <view class="quick-item" bindtap="goAiLetter">AI情书</view>
+    <view class="quick-item" bindtap="goYearReport">年度报告</view>
   </view>
 
   <view class="section card">

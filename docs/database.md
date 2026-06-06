@@ -151,6 +151,23 @@
 }
 ```
 
+## year_reports
+
+```js
+{
+  _id,
+  coupleId,
+  userId,
+  year,
+  stats,
+  highlights,
+  content,
+  keywords,
+  createdAt,
+  updatedAt
+}
+```
+
 ## 建议索引
 
 - `users.openid`
@@ -163,6 +180,7 @@
 - `checkins.coupleId + date`
 - `wishes.coupleId + status`
 - `love_letters.coupleId + createdAt`
+- `year_reports.coupleId + year`
 - `reminders.status + remindAt`
 
 ## 权限建议

@@ -1,0 +1,264 @@
+.year-report-page {
+  padding-top: 32rpx;
+}
+
+.report-hero {
+  padding: 44rpx 32rpx;
+  border-radius: 24rpx;
+  background: linear-gradient(145deg, #f47c9d, #ffc2d1);
+  color: #ffffff;
+}
+
+.report-hero-title {
+  font-size: 46rpx;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.report-hero-subtitle {
+  margin-top: 14rpx;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 26rpx;
+  line-height: 1.5;
+}
+
+.section-title {
+  color: #513943;
+  font-size: 32rpx;
+  font-weight: 700;
+}
+
+.year-picker {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 88rpx;
+  margin-top: 22rpx;
+  padding: 0 24rpx;
+  border-radius: 16rpx;
+  background: #fff7f9;
+  color: #513943;
+  font-size: 32rpx;
+  font-weight: 700;
+  box-sizing: border-box;
+}
+
+.year-picker-arrow {
+  color: #f47c9d;
+  font-size: 42rpx;
+  line-height: 1;
+  transform: rotate(90deg);
+}
+
+.generate-button {
+  margin-top: 24rpx;
+}
+
+.report-card {
+  padding: 32rpx 28rpx;
+  border-radius: 24rpx;
+  background: linear-gradient(180deg, #ffffff, #fff7f9);
+  box-shadow: 0 12rpx 36rpx rgba(244, 124, 157, 0.12);
+}
+
+.report-title {
+  color: #513943;
+  font-size: 40rpx;
+  font-weight: 800;
+  line-height: 1.25;
+  text-align: center;
+}
+
+.report-subtitle {
+  margin-top: 10rpx;
+  color: #8a6f78;
+  font-size: 24rpx;
+  text-align: center;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16rpx;
+  margin-top: 30rpx;
+}
+
+.stat-card {
+  min-height: 132rpx;
+  padding: 22rpx 12rpx;
+  border-radius: 16rpx;
+  background: #ffffff;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.stat-value {
+  color: #f47c9d;
+  font-size: 38rpx;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.stat-unit {
+  margin-left: 4rpx;
+  font-size: 22rpx;
+  font-weight: 600;
+}
+
+.stat-label {
+  margin-top: 8rpx;
+  color: #8a6f78;
+  font-size: 23rpx;
+}
+
+.report-section {
+  margin-top: 34rpx;
+}
+
+.report-section-title {
+  color: #513943;
+  font-size: 30rpx;
+  font-weight: 800;
+}
+
+.timeline-item {
+  position: relative;
+  display: flex;
+  margin-top: 22rpx;
+}
+
+.timeline-dot {
+  width: 18rpx;
+  height: 18rpx;
+  margin: 12rpx 18rpx 0 4rpx;
+  border-radius: 9rpx;
+  background: #f47c9d;
+  box-shadow: 0 0 0 8rpx #ffe1ea;
+  flex: 0 0 auto;
+}
+
+.timeline-content {
+  flex: 1;
+  min-width: 0;
+  padding-bottom: 18rpx;
+  border-bottom: 2rpx solid #fff0f4;
+}
+
+.timeline-date {
+  color: #8a6f78;
+  font-size: 22rpx;
+}
+
+.timeline-title {
+  margin-top: 6rpx;
+  color: #513943;
+  font-size: 28rpx;
+  font-weight: 700;
+}
+
+.timeline-summary {
+  margin-top: 6rpx;
+  color: #8a6f78;
+  font-size: 24rpx;
+  line-height: 1.5;
+}
+
+.report-content,
+.closing-line {
+  margin-top: 16rpx;
+  padding: 24rpx;
+  border-radius: 16rpx;
+  background: #ffffff;
+  color: #513943;
+  font-size: 28rpx;
+  line-height: 1.8;
+  white-space: pre-wrap;
+}
+
+.closing-line {
+  color: #f47c9d;
+  font-weight: 700;
+}
+
+.keyword-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14rpx;
+  margin-top: 16rpx;
+}
+
+.keyword-tag {
+  padding: 12rpx 20rpx;
+  border-radius: 999rpx;
+  background: #fff0f4;
+  color: #f47c9d;
+  font-size: 24rpx;
+  font-weight: 700;
+}
+
+.compact-list {
+  padding: 22rpx;
+  border-radius: 16rpx;
+  background: #ffffff;
+}
+
+.list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 16rpx;
+}
+
+.list-title {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  color: #513943;
+  font-size: 26rpx;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.list-date {
+  margin-left: 16rpx;
+  color: #8a6f78;
+  font-size: 22rpx;
+}
+
+.empty-text {
+  margin-top: 16rpx;
+  color: #8a6f78;
+  font-size: 24rpx;
+}
+
+.result-actions {
+  display: flex;
+  align-items: center;
+  margin-top: 34rpx;
+}
+
+.action-button {
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+  padding: 0 16rpx;
+  font-size: 28rpx;
+}
+
+.action-button + .action-button {
+  margin-left: 18rpx;
+}
+
+.share-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80rpx;
+  margin-top: 18rpx;
+  border-radius: 40rpx;
+  background: #fff0f4;
+  color: #f47c9d;
+  font-size: 28rpx;
+  line-height: 1;
+}

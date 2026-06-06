@@ -15,6 +15,7 @@ const COLLECTIONS = [
   'checkins',
   'wishes',
   'love_letters',
+  'year_reports',
   'reminders'
 ];
 

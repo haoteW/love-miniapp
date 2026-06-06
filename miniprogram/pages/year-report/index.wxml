@@ -1,0 +1,85 @@
+<view class="page year-report-page">
+  <view class="report-hero">
+    <view class="report-hero-title">{{selectedYear}} 年度报告</view>
+    <view class="report-hero-subtitle">把这一年的日记、照片、心愿和纪念日，整理成一本温柔的回忆册</view>
+  </view>
+
+  <view class="section card control-card">
+    <view class="section-title">选择年份</view>
+    <picker mode="selector" range="{{yearOptions}}" value="{{yearIndex}}" bindchange="onYearChange">
+      <view class="year-picker">
+        <view>{{selectedYear}}</view>
+        <view class="year-picker-arrow">›</view>
+      </view>
+    </picker>
+    <button class="primary-button generate-button" loading="{{isGenerating}}" bindtap="generateReport">
+      {{report ? '重新生成' : '生成年度报告'}}
+    </button>
+  </view>
+
+  <view wx:if="{{report}}" class="section report-card">
+    <view class="report-title">{{report.year}} 年，我们一起走过</view>
+    <view class="report-subtitle">一份属于两个人的年度回忆</view>
+
+    <view class="stats-grid">
+      <view wx:for="{{statCards}}" wx:key="label" class="stat-card">
+        <view class="stat-value">{{item.value}}<text wx:if="{{item.unit}}" class="stat-unit">{{item.unit}}</text></view>
+        <view class="stat-label">{{item.label}}</view>
+      </view>
+    </view>
+
+    <view class="report-section">
+      <view class="report-section-title">高光回忆</view>
+      <view wx:if="{{!report.highlights.length}}" class="empty-text">这一年还没有日记高光</view>
+      <view wx:for="{{report.highlights}}" wx:key="date" class="timeline-item">
+        <view class="timeline-dot"></view>
+        <view class="timeline-content">
+          <view class="timeline-date">{{item.date}}</view>
+          <view class="timeline-title">{{item.title}}</view>
+          <view wx:if="{{item.summary}}" class="timeline-summary">{{item.summary}}</view>
+        </view>
+      </view>
+    </view>
+
+    <view class="report-section">
+      <view class="report-section-title">AI 年度总结</view>
+      <view class="report-content">{{report.content}}</view>
+    </view>
+
+    <view class="report-section">
+      <view class="report-section-title">给彼此的一句话</view>
+      <view class="closing-line">{{report.closingLine}}</view>
+    </view>
+
+    <view class="report-section">
+      <view class="report-section-title">年度关键词</view>
+      <view class="keyword-row">
+        <view wx:for="{{report.keywords}}" wx:key="*this" class="keyword-tag">{{item}}</view>
+      </view>
+    </view>
+
+    <view class="report-section compact-list">
+      <view class="report-section-title">完成的心愿</view>
+      <view wx:if="{{!report.completedWishes.length}}" class="empty-text">这一年还没有完成心愿</view>
+      <view wx:for="{{report.completedWishes}}" wx:key="title" class="list-item">
+        <view class="list-title">{{item.title}}</view>
+        <view class="list-date">{{item.date}}</view>
+      </view>
+    </view>
+
+    <view class="report-section compact-list">
+      <view class="report-section-title">新增纪念日</view>
+      <view wx:if="{{!report.anniversaries.length}}" class="empty-text">这一年还没有新增纪念日</view>
+      <view wx:for="{{report.anniversaries}}" wx:key="title" class="list-item">
+        <view class="list-title">{{item.title}}</view>
+        <view class="list-date">{{item.date}}</view>
+      </view>
+    </view>
+
+    <view class="result-actions">
+      <button class="ghost-button action-button" bindtap="copyReport">复制文案</button>
+      <button class="primary-button action-button" bindtap="saveReport">{{isSaved ? '已保存' : '保存报告'}}</button>
+    </view>
+    <button class="share-button" bindtap="createShareImage">生成分享图</button>
+  </view>
+</view>

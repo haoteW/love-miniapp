@@ -243,5 +243,9 @@ Page({
 
   goAiLetter() {
     wx.navigateTo({ url: '/pages/ai-letter/index' });
+  },
+
+  goYearReport() {
+    wx.navigateTo({ url: '/pages/year-report/index' });
   }
 });
