@@ -51,6 +51,12 @@
       "desc": "用于约会打卡时选择位置"
     }
   },
+  "networkTimeout": {
+    "request": 60000,
+    "connectSocket": 60000,
+    "uploadFile": 60000,
+    "downloadFile": 60000
+  },
   "requiredPrivateInfos": [
     "chooseLocation"
   ],

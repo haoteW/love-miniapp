@@ -48,6 +48,8 @@
 
 如果缺少 `AI_API_KEY`，云函数会返回明确错误提示。
 
+真实 AI 接口通常会超过云函数默认 3 秒超时，`generateLoveLetter/config.json` 已将云函数超时时间配置为 30 秒。修改后需要在微信开发者工具中重新上传并部署 `generateLoveLetter` 云函数，云端配置才会生效。
+
 ## setupDatabase
 
 一次性初始化数据库集合：

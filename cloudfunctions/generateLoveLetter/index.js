@@ -86,7 +86,7 @@ function requestJson(url, apiKey, payload) {
         'Content-Type': 'application/json',
         'Content-Length': Buffer.byteLength(body)
       },
-      timeout: 30000
+      timeout: 25000
     }, (res) => {
       const chunks = [];
       res.on('data', (chunk) => chunks.push(chunk));
@@ -155,7 +155,8 @@ exports.main = async (event) => {
           content: prompt
         }
       ],
-      temperature: 0.85
+      temperature: 0.85,
+      max_tokens: 900
     });
     const content = extractContent(data).trim();
 

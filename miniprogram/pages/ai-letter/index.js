@@ -127,13 +127,24 @@ Page({
       });
       wx.showModal({
         title: '生成失败',
-        content: error.message || 'AI API 调用失败，请稍后重试。',
+        content: this.getGenerateErrorMessage(error),
         showCancel: false
       });
       return;
     } finally {
       wx.hideLoading();
     }
+  },
+
+  getGenerateErrorMessage(error) {
+    const message = error && error.message ? error.message : '';
+    if (/TIME_LIMIT_EXCEEDED|timed out|timeout|超时/i.test(message)) {
+      return '生成时间有点久，请稍后再试。若持续出现，请重新部署 generateLoveLetter 云函数并确认超时时间为 30 秒。';
+    }
+    if (/AI_API_KEY/.test(message)) {
+      return message;
+    }
+    return message || 'AI API 调用失败，请稍后重试。';
   },
 
   copyLetter() {
