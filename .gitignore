@@ -1,4 +1,5 @@
 project.private.config.json
+.codex-remote-attachments/
 .tools/
 .DS_Store
 node_modules/

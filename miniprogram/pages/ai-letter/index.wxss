@@ -128,13 +128,27 @@
 }
 
 .result-actions {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 18rpx;
+  display: flex;
+  align-items: center;
   margin-top: 24rpx;
 }
 
 .action-button {
-  width: 100%;
+  flex: 1;
+  min-width: 0;
   margin: 0;
+  padding: 0 16rpx;
+  font-size: 28rpx;
+}
+
+.action-button + .action-button {
+  margin-left: 18rpx;
+}
+
+.save-hint {
+  margin-top: 16rpx;
+  color: #8a6f78;
+  font-size: 22rpx;
+  line-height: 1.5;
+  text-align: center;
 }

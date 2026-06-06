@@ -66,5 +66,6 @@
       <button class="ghost-button action-button" bindtap="copyLetter">复制</button>
       <button class="primary-button action-button" bindtap="saveLetter">保存</button>
     </view>
+    <view class="save-hint">保存后会写入情书记录，可在云数据库 love_letters 中查看。</view>
   </view>
 </view>
