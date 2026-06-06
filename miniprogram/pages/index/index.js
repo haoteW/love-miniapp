@@ -4,6 +4,7 @@ const { getValue } = require('../../utils/storage');
 const { getCollectionList } = require('../../utils/data');
 
 const WEEKDAYS = ['日', '一', '二', '三', '四', '五', '六'];
+const NOW = new Date();
 
 Page({
   data: {
@@ -12,11 +13,14 @@ Page({
     nextAnniversaryText: '还没有纪念日，去添加一个吧',
     latestCheckinText: '还没有打卡记录，去记录一次约会吧',
     calendarTitle: '',
+    calendarYear: NOW.getFullYear(),
+    calendarMonth: NOW.getMonth(),
     weekdays: WEEKDAYS,
     calendarDays: [],
     selectedDate: '',
     selectedDateRecords: [],
-    calendarRecordMap: {}
+    calendarRecordMap: {},
+    calendarRecords: null
   },
 
   onLoad() {
@@ -47,6 +51,12 @@ Page({
       latestCheckinText: latestCheckin
         ? `${latestCheckin.title} · ${latestCheckin.date || '刚刚'}`
         : '还没有打卡记录，去记录一次约会吧',
+      calendarRecords: {
+        anniversaries,
+        diaries,
+        checkins,
+        wishes
+      },
       ...this.buildCalendar({
         anniversaries,
         diaries,
@@ -58,12 +68,12 @@ Page({
 
   buildCalendar(records) {
     const today = new Date();
-    const year = today.getFullYear();
-    const month = today.getMonth();
+    const year = this.data.calendarYear;
+    const month = this.data.calendarMonth;
     const firstDay = new Date(year, month, 1);
     const totalDays = new Date(year, month + 1, 0).getDate();
     const recordMap = this.getCalendarRecordMap(records);
-    const selectedDate = this.data.selectedDate || formatDate(today);
+    const selectedDate = this.getSelectedDateForMonth(year, month, recordMap);
     const calendarDays = [];
 
     for (let index = 0; index < firstDay.getDay(); index += 1) {
@@ -79,7 +89,7 @@ Page({
         key: date,
         day,
         date,
-        isToday: day === today.getDate(),
+        isToday: year === today.getFullYear() && month === today.getMonth() && day === today.getDate(),
         isSelected: date === selectedDate,
         records: recordMap[date] || [],
         dots: this.getDots(recordMap[date] || [])
@@ -88,11 +98,53 @@ Page({
 
     return {
       calendarTitle: `${year}年${month + 1}月`,
+      calendarYear: year,
+      calendarMonth: month,
       calendarDays,
       calendarRecordMap: recordMap,
       selectedDate,
       selectedDateRecords: recordMap[selectedDate] || []
     };
+  },
+
+  getSelectedDateForMonth(year, month, recordMap) {
+    const monthPrefix = `${year}-${String(month + 1).padStart(2, '0')}`;
+    if (this.data.selectedDate && this.data.selectedDate.startsWith(monthPrefix)) {
+      return this.data.selectedDate;
+    }
+
+    const today = new Date();
+    const todayText = formatDate(today);
+    if (year === today.getFullYear() && month === today.getMonth()) {
+      return todayText;
+    }
+
+    const firstRecordDate = Object.keys(recordMap)
+      .filter((date) => date.startsWith(monthPrefix))
+      .sort()[0];
+
+    return firstRecordDate || `${monthPrefix}-01`;
+  },
+
+  changeCalendarMonth(offset) {
+    const next = new Date(this.data.calendarYear, this.data.calendarMonth + offset, 1);
+    this.setData({
+      calendarYear: next.getFullYear(),
+      calendarMonth: next.getMonth(),
+      selectedDate: ''
+    });
+
+    if (this.data.calendarRecords) {
+      this.setData(this.buildCalendar(this.data.calendarRecords));
+    }
+  },
+
+  prevMonth() {
+    this.changeCalendarMonth(-1);
+  },
+
+  nextMonth() {
+    this.changeCalendarMonth(1);
   },
 
   getCalendarRecordMap({ anniversaries, diaries, checkins, wishes }) {

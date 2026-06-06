@@ -52,6 +52,31 @@
   margin-bottom: 24rpx;
 }
 
+.calendar-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.calendar-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56rpx;
+  height: 56rpx;
+  margin: 0;
+  padding: 0;
+  border-radius: 28rpx;
+  background: #fff0f4;
+  color: #f47c9d;
+  font-size: 40rpx;
+  line-height: 1;
+}
+
+.calendar-nav:active {
+  opacity: 0.72;
+}
+
 .weekday-row,
 .calendar-grid {
   display: grid;

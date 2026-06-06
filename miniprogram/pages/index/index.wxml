@@ -25,7 +25,11 @@
 
   <view class="section card calendar-card">
     <view class="calendar-header">
-      <view class="title">{{calendarTitle}}</view>
+      <view class="calendar-title-row">
+        <button class="calendar-nav" bindtap="prevMonth">‹</button>
+        <view class="title">{{calendarTitle}}</view>
+        <button class="calendar-nav" bindtap="nextMonth">›</button>
+      </view>
       <view class="subtitle">蓝点代表男生记录，粉点代表女生记录</view>
     </view>
     <view class="weekday-row">
