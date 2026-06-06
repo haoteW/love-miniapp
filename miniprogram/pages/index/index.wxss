@@ -53,9 +53,21 @@
 }
 
 .calendar-title-row {
-  display: flex;
+  display: grid;
   align-items: center;
-  justify-content: space-between;
+  grid-template-columns: 72rpx 1fr 72rpx;
+  gap: 8rpx;
+}
+
+.calendar-month-title {
+  overflow: hidden;
+  color: #513943;
+  font-size: 34rpx;
+  font-weight: 800;
+  line-height: 56rpx;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .calendar-nav {
@@ -64,8 +76,7 @@
   justify-content: center;
   width: 56rpx;
   height: 56rpx;
-  margin: 0;
-  padding: 0;
+  margin: 0 auto;
   border-radius: 28rpx;
   background: #fff0f4;
   color: #f47c9d;
