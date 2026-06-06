@@ -239,5 +239,9 @@ Page({
 
   goWishEdit() {
     wx.navigateTo({ url: '/pages/wish-edit/wish-edit' });
+  },
+
+  goAiLetter() {
+    wx.navigateTo({ url: '/pages/ai-letter/index' });
   }
 });

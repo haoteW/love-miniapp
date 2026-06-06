@@ -36,6 +36,10 @@
 
 扫描到期提醒。当前只更新状态，订阅消息发送逻辑后续接入。
 
+## generateLoveLetter
+
+生成 AI 情书。当前使用 mock 逻辑生成文案，代码中已预留真实 AI API 调用位置。
+
 ## setupDatabase
 
 一次性初始化数据库集合：
@@ -47,4 +51,5 @@
 - `diaries`
 - `checkins`
 - `wishes`
+- `love_letters`
 - `reminders`

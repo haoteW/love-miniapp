@@ -1,0 +1,70 @@
+<view class="page ai-letter-page">
+  <view class="letter-hero">
+    <view class="letter-hero-title">AI情书</view>
+    <view class="letter-hero-subtitle">把你们的日常、心愿和纪念日，写成一封温柔的信</view>
+  </view>
+
+  <view class="section card">
+    <view class="section-title">选择风格</view>
+    <view class="style-grid">
+      <view
+        wx:for="{{styleOptions}}"
+        wx:key="*this"
+        class="style-chip {{index === activeStyleIndex ? 'active' : ''}}"
+        data-index="{{index}}"
+        bindtap="selectStyle"
+      >
+        {{item}}
+      </view>
+    </view>
+  </view>
+
+  <view class="section card">
+    <view class="section-title">补充信息</view>
+    <textarea class="letter-textarea" placeholder="想对 TA 说的话" value="{{words}}" bindinput="onWordsInput" />
+    <textarea class="letter-textarea" placeholder="最近发生的小事" value="{{smallThings}}" bindinput="onSmallThingsInput" />
+    <textarea class="letter-textarea" placeholder="希望表达的情绪" value="{{emotion}}" bindinput="onEmotionInput" />
+  </view>
+
+  <view class="section card context-card">
+    <view class="section-title">自动读取的记录</view>
+    <view class="context-grid">
+      <view class="context-item">
+        <view class="context-value">{{loveDays}}</view>
+        <view class="context-label">恋爱天数</view>
+      </view>
+      <view class="context-item">
+        <view class="context-value">{{recentDiaries.length}}</view>
+        <view class="context-label">最近日记</view>
+      </view>
+      <view class="context-item">
+        <view class="context-value">{{recentAnniversaries.length}}</view>
+        <view class="context-label">纪念日</view>
+      </view>
+      <view class="context-item">
+        <view class="context-value">{{completedWishes.length}}</view>
+        <view class="context-label">完成心愿</view>
+      </view>
+      <view class="context-item">
+        <view class="context-value">{{albumCount}}</view>
+        <view class="context-label">相册照片</view>
+      </view>
+    </view>
+  </view>
+
+  <button class="primary-button generate-button" loading="{{isGenerating}}" bindtap="generateLetter">
+    {{generatedContent ? '重新生成' : '生成情书'}}
+  </button>
+
+  <view wx:if="{{generatedContent}}" class="section card result-card">
+    <view class="result-header">
+      <view class="section-title">生成结果</view>
+      <view wx:if="{{isSaved}}" class="saved-badge">已保存</view>
+    </view>
+    <view class="letter-content">{{generatedContent}}</view>
+    <view class="result-actions">
+      <button class="ghost-button action-button" bindtap="copyLetter">复制</button>
+      <button class="primary-button action-button" bindtap="saveLetter">保存</button>
+    </view>
+  </view>
+</view>

@@ -137,6 +137,20 @@
 }
 ```
 
+## love_letters
+
+```js
+{
+  _id,
+  coupleId,
+  userId,
+  style,
+  inputText,
+  content,
+  createdAt
+}
+```
+
 ## 建议索引
 
 - `users.openid`
@@ -148,6 +162,7 @@
 - `diaries.coupleId + date`
 - `checkins.coupleId + date`
 - `wishes.coupleId + status`
+- `love_letters.coupleId + createdAt`
 - `reminders.status + remindAt`
 
 ## 权限建议

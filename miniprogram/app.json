@@ -10,6 +10,7 @@
     "pages/checkin-edit/checkin-edit",
     "pages/wishes/wishes",
     "pages/wish-edit/wish-edit",
+    "pages/ai-letter/index",
     "pages/bind/bind",
     "pages/record-detail/record-detail",
     "pages/profile/profile",

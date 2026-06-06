@@ -6,6 +6,7 @@ const COLLECTIONS = {
   DIARIES: 'diaries',
   CHECKINS: 'checkins',
   WISHES: 'wishes',
+  LOVE_LETTERS: 'love_letters',
   REMINDERS: 'reminders'
 };
 
@@ -15,6 +16,7 @@ const STORAGE_KEYS = {
   DIARIES: 'diaries',
   CHECKINS: 'checkins',
   WISHES: 'wishes',
+  LOVE_LETTERS: 'loveLetters',
   PROFILE: 'profile'
 };
 

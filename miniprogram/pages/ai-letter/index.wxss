@@ -1,0 +1,140 @@
+.ai-letter-page {
+  padding-top: 32rpx;
+}
+
+.letter-hero {
+  padding: 44rpx 32rpx;
+  border-radius: 24rpx;
+  background: linear-gradient(145deg, #f47c9d, #ffc2d1);
+  color: #ffffff;
+}
+
+.letter-hero-title {
+  font-size: 48rpx;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.letter-hero-subtitle {
+  margin-top: 14rpx;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 26rpx;
+  line-height: 1.5;
+}
+
+.section-title {
+  color: #513943;
+  font-size: 32rpx;
+  font-weight: 700;
+}
+
+.style-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16rpx;
+  margin-top: 24rpx;
+}
+
+.style-chip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 72rpx;
+  padding: 0 18rpx;
+  border-radius: 36rpx;
+  background: #fff0f4;
+  color: #8a6f78;
+  font-size: 26rpx;
+  box-sizing: border-box;
+}
+
+.style-chip.active {
+  background: #f47c9d;
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.letter-textarea {
+  width: 100%;
+  min-height: 144rpx;
+  margin-top: 20rpx;
+  padding: 22rpx;
+  border-radius: 16rpx;
+  background: #fff7f9;
+  color: #513943;
+  font-size: 28rpx;
+  line-height: 1.5;
+  box-sizing: border-box;
+}
+
+.context-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14rpx;
+  margin-top: 24rpx;
+}
+
+.context-item {
+  padding: 18rpx 8rpx;
+  border-radius: 16rpx;
+  background: #fff7f9;
+  text-align: center;
+}
+
+.context-value {
+  color: #f47c9d;
+  font-size: 34rpx;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.context-label {
+  margin-top: 6rpx;
+  color: #8a6f78;
+  font-size: 22rpx;
+}
+
+.generate-button {
+  margin-top: 32rpx;
+}
+
+.result-card {
+  margin-bottom: 32rpx;
+}
+
+.result-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.saved-badge {
+  padding: 8rpx 16rpx;
+  border-radius: 999rpx;
+  background: #edf8f1;
+  color: #3a9b64;
+  font-size: 22rpx;
+}
+
+.letter-content {
+  margin-top: 24rpx;
+  padding: 24rpx;
+  border-radius: 16rpx;
+  background: #fff7f9;
+  color: #513943;
+  font-size: 30rpx;
+  line-height: 1.8;
+  white-space: pre-wrap;
+}
+
+.result-actions {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18rpx;
+  margin-top: 24rpx;
+}
+
+.action-button {
+  width: 100%;
+  margin: 0;
+}
