@@ -44,6 +44,14 @@
       }
     ]
   },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "用于约会打卡时选择位置"
+    }
+  },
+  "requiredPrivateInfos": [
+    "chooseLocation"
+  ],
   "style": "v2",
   "sitemapLocation": "sitemap.json"
 }

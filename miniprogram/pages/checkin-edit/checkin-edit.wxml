@@ -6,7 +6,11 @@
       <view class="date-value">{{date}}</view>
     </view>
   </picker>
-  <input class="input" placeholder="地点" value="{{locationName}}" bindinput="onLocationInput" />
+  <view class="location-field">
+    <input class="location-input" placeholder="地点" value="{{locationName}}" bindinput="onLocationInput" />
+    <button class="location-button" bindtap="chooseLocation">定位</button>
+  </view>
+  <view wx:if="{{address}}" class="location-address">{{address}}</view>
   <textarea class="textarea" placeholder="这次约会有什么特别的？" value="{{note}}" bindinput="onNoteInput" />
   <view class="image-picker">
     <view class="image-picker-header">

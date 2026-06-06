@@ -8,6 +8,9 @@ Page({
     title: '',
     date: formatDate(new Date()),
     locationName: '',
+    address: '',
+    latitude: null,
+    longitude: null,
     note: '',
     images: []
   },
@@ -21,7 +24,29 @@ Page({
   },
 
   onLocationInput(event) {
-    this.setData({ locationName: event.detail.value });
+    this.setData({
+      locationName: event.detail.value,
+      address: '',
+      latitude: null,
+      longitude: null
+    });
+  },
+
+  chooseLocation() {
+    wx.chooseLocation({
+      success: (res) => {
+        this.setData({
+          locationName: res.name || res.address || '',
+          address: res.address || '',
+          latitude: res.latitude,
+          longitude: res.longitude
+        });
+      },
+      fail: (error) => {
+        if (error.errMsg && error.errMsg.includes('cancel')) return;
+        wx.showToast({ title: '定位失败，请手动填写', icon: 'none' });
+      }
+    });
   },
 
   onNoteInput(event) {
@@ -60,6 +85,9 @@ Page({
     await addCollectionItem(COLLECTIONS.CHECKINS, STORAGE_KEYS.CHECKINS, {
       title: this.data.title,
       locationName: this.data.locationName || '未填写地点',
+      address: this.data.address,
+      latitude: this.data.latitude,
+      longitude: this.data.longitude,
       note: this.data.note,
       images,
       date: this.data.date

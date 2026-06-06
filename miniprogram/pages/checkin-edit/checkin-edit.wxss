@@ -2,3 +2,42 @@
 .form-page > .textarea {
   margin-bottom: 24rpx;
 }
+
+.location-field {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+  margin-bottom: 16rpx;
+}
+
+.location-input {
+  flex: 1;
+  min-width: 0;
+  min-height: 88rpx;
+  padding: 0 24rpx;
+  border-radius: 16rpx;
+  background: #ffffff;
+  box-sizing: border-box;
+}
+
+.location-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 132rpx;
+  height: 88rpx;
+  padding: 0;
+  border-radius: 44rpx;
+  background: #f47c9d;
+  color: #ffffff;
+  font-size: 28rpx;
+  line-height: 1;
+}
+
+.location-address {
+  margin: 0 0 24rpx;
+  padding: 0 8rpx;
+  color: #8a6f78;
+  font-size: 24rpx;
+  line-height: 1.5;
+}
