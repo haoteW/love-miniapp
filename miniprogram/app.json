@@ -11,6 +11,7 @@
     "pages/wishes/wishes",
     "pages/wish-edit/wish-edit",
     "pages/bind/bind",
+    "pages/record-detail/record-detail",
     "pages/profile/profile",
     "pages/mine/mine"
   ],

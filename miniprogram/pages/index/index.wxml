@@ -35,11 +35,32 @@
       <view
         wx:for="{{calendarDays}}"
         wx:key="key"
-        class="calendar-day {{item.empty ? 'is-empty' : ''}} {{item.isToday ? 'is-today' : ''}}"
+        class="calendar-day {{item.empty ? 'is-empty' : ''}} {{item.isToday ? 'is-today' : ''}} {{item.isSelected ? 'is-selected' : ''}} {{item.records && item.records.length ? 'has-records' : ''}}"
+        data-date="{{item.date}}"
+        bindtap="selectCalendarDay"
       >
         <view wx:if="{{!item.empty}}" class="calendar-number">{{item.day}}</view>
         <view wx:if="{{item.dots && item.dots.length}}" class="record-dots">
           <view wx:for="{{item.dots}}" wx:for-item="dot" wx:key="*this" class="record-dot {{dot}}"></view>
+        </view>
+      </view>
+    </view>
+
+    <view class="calendar-records">
+      <view class="calendar-records-title">{{selectedDate}} 的记录</view>
+      <view wx:if="{{!selectedDateRecords.length}}" class="calendar-empty">这天还没有记录</view>
+      <view
+        wx:for="{{selectedDateRecords}}"
+        wx:key="uid"
+        class="calendar-record-item"
+        data-type="{{item.type}}"
+        data-id="{{item.id}}"
+        bindtap="goRecordDetail"
+      >
+        <view class="calendar-record-type {{item.type}}">{{item.typeText}}</view>
+        <view class="calendar-record-main">
+          <view class="calendar-record-title">{{item.title}}</view>
+          <view wx:if="{{item.summary}}" class="calendar-record-summary">{{item.summary}}</view>
         </view>
       </view>
     </view>

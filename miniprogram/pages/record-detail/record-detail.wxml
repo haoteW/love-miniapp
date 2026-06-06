@@ -1,0 +1,25 @@
+<view class="page detail-page">
+  <view wx:if="{{record}}" class="card detail-card">
+    <view class="detail-type">{{typeTitle}}</view>
+    <view class="detail-title">{{record.title}}</view>
+
+    <view class="detail-fields">
+      <view wx:for="{{fields}}" wx:key="label" class="detail-field">
+        <view class="detail-label">{{item.label}}</view>
+        <view class="detail-value">{{item.value}}</view>
+      </view>
+    </view>
+
+    <view wx:if="{{images.length}}" class="image-grid detail-images">
+      <image
+        wx:for="{{images}}"
+        wx:key="*this"
+        class="image-thumb"
+        src="{{item}}"
+        mode="aspectFill"
+        data-current="{{item}}"
+        bindtap="previewImage"
+      />
+    </view>
+  </view>
+</view>

@@ -13,7 +13,10 @@ Page({
     latestCheckinText: '还没有打卡记录，去记录一次约会吧',
     calendarTitle: '',
     weekdays: WEEKDAYS,
-    calendarDays: []
+    calendarDays: [],
+    selectedDate: '',
+    selectedDateRecords: [],
+    calendarRecordMap: {}
   },
 
   onLoad() {
@@ -59,7 +62,8 @@ Page({
     const month = today.getMonth();
     const firstDay = new Date(year, month, 1);
     const totalDays = new Date(year, month + 1, 0).getDate();
-    const markedMap = this.getMarkedDateMap(records);
+    const recordMap = this.getCalendarRecordMap(records);
+    const selectedDate = this.data.selectedDate || formatDate(today);
     const calendarDays = [];
 
     for (let index = 0; index < firstDay.getDay(); index += 1) {
@@ -76,36 +80,89 @@ Page({
         day,
         date,
         isToday: day === today.getDate(),
-        dots: markedMap[date] || []
+        isSelected: date === selectedDate,
+        records: recordMap[date] || [],
+        dots: this.getDots(recordMap[date] || [])
       });
     }
 
     return {
       calendarTitle: `${year}年${month + 1}月`,
-      calendarDays
+      calendarDays,
+      calendarRecordMap: recordMap,
+      selectedDate,
+      selectedDateRecords: recordMap[selectedDate] || []
     };
   },
 
-  getMarkedDateMap({ anniversaries, diaries, checkins, wishes }) {
+  getCalendarRecordMap({ anniversaries, diaries, checkins, wishes }) {
     const map = {};
-    anniversaries.forEach((item) => this.pushDateDot(map, item.date, item.creatorGender));
-    diaries.forEach((item) => this.pushDateDot(map, item.date || item.createdAt, item.creatorGender));
-    checkins.forEach((item) => this.pushDateDot(map, item.date || item.createdAt, item.creatorGender));
-    wishes.forEach((item) => this.pushDateDot(map, item.date || item.createdAt, item.creatorGender));
+    anniversaries.forEach((item) => this.pushCalendarRecord(map, item, 'anniversary', '纪念日', item.date, item.note || item.daysText));
+    diaries.forEach((item) => this.pushCalendarRecord(map, item, 'diary', '日记', item.date || item.createdAt, item.content));
+    checkins.forEach((item) => this.pushCalendarRecord(map, item, 'checkin', '打卡', item.date || item.createdAt, item.locationName || item.note));
+    wishes.forEach((item) => this.pushCalendarRecord(map, item, 'wish', '心愿', item.date || item.createdAt, item.category || item.statusText));
     return map;
   },
 
-  pushDateDot(map, value, gender) {
+  getDateKey(value) {
     if (!value) return;
-    const date = value instanceof Date ? value : new Date(String(value).replace(/-/g, '/'));
+    const rawDate = value && typeof value.toDate === 'function' ? value.toDate() : value;
+    const date = rawDate instanceof Date ? rawDate : new Date(String(rawDate).replace(/-/g, '/'));
     if (Number.isNaN(date.getTime())) return;
-    const key = formatDate(date);
-    const dotType = Number(gender) === 1 ? 'male' : 'female';
-    const dots = map[key] || [];
-    if (!dots.includes(dotType)) {
-      dots.push(dotType);
-    }
-    map[key] = dots;
+    return formatDate(date);
+  },
+
+  pushCalendarRecord(map, item, type, typeText, value, summary) {
+    const key = this.getDateKey(value);
+    if (!key) return;
+    const records = map[key] || [];
+    const id = item._id || item.id || `${type}-${records.length}`;
+    records.push({
+      id,
+      uid: `${type}-${id}`,
+      type,
+      typeText,
+      title: item.title || typeText,
+      summary: summary || '',
+      date: key,
+      gender: Number(item.creatorGender) === 1 ? 'male' : 'female'
+    });
+    map[key] = records;
+  },
+
+  getDots(records) {
+    const dots = [];
+    records.forEach((record) => {
+      const dotType = record.gender;
+      if (!dots.includes(dotType)) {
+        dots.push(dotType);
+      }
+    });
+    return dots;
+  },
+
+  selectCalendarDay(event) {
+    const date = event.currentTarget.dataset.date;
+    if (!date) return;
+    const selectedDateRecords = this.data.calendarRecordMap[date] || [];
+    if (!selectedDateRecords.length) return;
+    const calendarDays = this.data.calendarDays.map((item) => ({
+      ...item,
+      isSelected: item.date === date
+    }));
+
+    this.setData({
+      selectedDate: date,
+      selectedDateRecords,
+      calendarDays
+    });
+  },
+
+  goRecordDetail(event) {
+    const { type, id } = event.currentTarget.dataset;
+    wx.navigateTo({
+      url: `/pages/record-detail/record-detail?type=${type}&id=${encodeURIComponent(id)}`
+    });
   },
 
   goSetup() {

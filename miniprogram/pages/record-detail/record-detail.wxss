@@ -1,0 +1,54 @@
+.detail-page {
+  padding-top: 32rpx;
+}
+
+.detail-card {
+  padding: 32rpx;
+}
+
+.detail-type {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 108rpx;
+  height: 44rpx;
+  padding: 0 18rpx;
+  border-radius: 22rpx;
+  background: #fff0f4;
+  color: #f47c9d;
+  font-size: 24rpx;
+}
+
+.detail-title {
+  margin-top: 24rpx;
+  color: #513943;
+  font-size: 40rpx;
+  font-weight: 800;
+  line-height: 1.3;
+}
+
+.detail-fields {
+  margin-top: 24rpx;
+}
+
+.detail-field {
+  padding: 20rpx 0;
+  border-bottom: 2rpx solid #fff0f4;
+}
+
+.detail-label {
+  color: #8a6f78;
+  font-size: 24rpx;
+}
+
+.detail-value {
+  margin-top: 8rpx;
+  color: #513943;
+  font-size: 30rpx;
+  line-height: 1.5;
+  word-break: break-all;
+}
+
+.detail-images {
+  margin-top: 24rpx;
+}
