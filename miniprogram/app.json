@@ -1,0 +1,49 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/setup-love/setup-love",
+    "pages/anniversaries/anniversaries",
+    "pages/anniversary-edit/anniversary-edit",
+    "pages/diaries/diaries",
+    "pages/diary-edit/diary-edit",
+    "pages/checkins/checkins",
+    "pages/checkin-edit/checkin-edit",
+    "pages/wishes/wishes",
+    "pages/wish-edit/wish-edit",
+    "pages/bind/bind",
+    "pages/profile/profile",
+    "pages/mine/mine"
+  ],
+  "window": {
+    "navigationBarTitleText": "恋爱记录",
+    "navigationBarBackgroundColor": "#F47C9D",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#FFF7F9"
+  },
+  "tabBar": {
+    "color": "#8A6F78",
+    "selectedColor": "#F47C9D",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/diaries/diaries",
+        "text": "日记"
+      },
+      {
+        "pagePath": "pages/wishes/wishes",
+        "text": "心愿"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,41 @@
+<view class="page form-page">
+  <view class="profile-avatar-section">
+    <button class="avatar-button" open-type="chooseAvatar" bindchooseavatar="onChooseAvatar">
+      <image wx:if="{{avatarUrl}}" class="profile-avatar-image" src="{{avatarUrl}}" mode="aspectFill" />
+      <view wx:else class="profile-avatar-placeholder">❤</view>
+    </button>
+  </view>
+
+  <input class="input" placeholder="昵称" value="{{nickName}}" bindinput="onNickNameInput" />
+
+  <picker mode="selector" range="{{genderOptions}}" range-key="label" value="{{genderIndex}}" bindchange="onGenderChange">
+    <view class="date-field">
+      <view class="date-label">性别</view>
+      <view class="date-value">{{genderOptions[genderIndex].label}}</view>
+    </view>
+  </picker>
+
+  <picker mode="selector" range="{{roleOptions}}" range-key="label" value="{{roleIndex}}" bindchange="onRoleChange">
+    <view class="date-field">
+      <view class="date-label">关系身份</view>
+      <view class="date-value">{{roleOptions[roleIndex].label}}</view>
+    </view>
+  </picker>
+
+  <picker mode="date" value="{{birthday}}" bindchange="onBirthdayChange">
+    <view class="date-field">
+      <view class="date-label">生日</view>
+      <view class="date-value">{{birthday || '选择生日'}}</view>
+    </view>
+  </picker>
+
+  <view class="visibility-row">
+    <view>
+      <view class="visibility-title">对另一半可见</view>
+      <view class="subtitle">关闭后只保存在自己的资料里</view>
+    </view>
+    <switch checked="{{visibleToPartner}}" color="#F47C9D" bindchange="onVisibleChange" />
+  </view>
+
+  <button class="primary-button save-button" bindtap="save">保存资料</button>
+</view>

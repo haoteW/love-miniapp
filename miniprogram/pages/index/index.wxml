@@ -1,0 +1,47 @@
+<view class="page home-page">
+  <view class="hero">
+    <view class="subtitle">我们已经在一起</view>
+    <view class="days">{{loveDays}}</view>
+    <view class="subtitle">天</view>
+    <button class="primary-button hero-button" bindtap="goSetup">设置恋爱日期</button>
+  </view>
+
+  <view class="quick-grid">
+    <view class="quick-item" bindtap="goAnniversaries">纪念日</view>
+    <view class="quick-item" bindtap="goDiaryEdit">写日记</view>
+    <view class="quick-item" bindtap="goCheckinEdit">约会打卡</view>
+    <view class="quick-item" bindtap="goWishEdit">加心愿</view>
+  </view>
+
+  <view class="section card">
+    <view class="title">最近纪念日</view>
+    <view class="subtitle">{{nextAnniversaryText}}</view>
+  </view>
+
+  <view class="section card" bindtap="goCheckins">
+    <view class="title">最近打卡</view>
+    <view class="subtitle">{{latestCheckinText}}</view>
+  </view>
+
+  <view class="section card calendar-card">
+    <view class="calendar-header">
+      <view class="title">{{calendarTitle}}</view>
+      <view class="subtitle">蓝点代表男生记录，粉点代表女生记录</view>
+    </view>
+    <view class="weekday-row">
+      <view wx:for="{{weekdays}}" wx:key="*this" class="weekday">{{item}}</view>
+    </view>
+    <view class="calendar-grid">
+      <view
+        wx:for="{{calendarDays}}"
+        wx:key="key"
+        class="calendar-day {{item.empty ? 'is-empty' : ''}} {{item.isToday ? 'is-today' : ''}}"
+      >
+        <view wx:if="{{!item.empty}}" class="calendar-number">{{item.day}}</view>
+        <view wx:if="{{item.dots && item.dots.length}}" class="record-dots">
+          <view wx:for="{{item.dots}}" wx:for-item="dot" wx:key="*this" class="record-dot {{dot}}"></view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

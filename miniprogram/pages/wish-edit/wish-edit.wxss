@@ -1,0 +1,4 @@
+.form-page > .input,
+.form-page > .textarea {
+  margin-bottom: 24rpx;
+}

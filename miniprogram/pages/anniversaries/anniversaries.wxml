@@ -1,0 +1,14 @@
+<view class="page">
+  <view class="list-header">
+    <view>
+      <view class="title">纪念日</view>
+      <view class="subtitle">重要日子都放在这里</view>
+    </view>
+    <button class="ghost-button add-button" bindtap="add">新增</button>
+  </view>
+
+  <view wx:for="{{items}}" wx:key="id" class="card anniversary-card">
+    <view class="item-title">{{item.title}}</view>
+    <view class="subtitle">{{item.date}} · {{item.daysText}}</view>
+  </view>
+</view>

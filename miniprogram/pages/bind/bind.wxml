@@ -1,0 +1,14 @@
+<view class="page">
+  <view class="card">
+    <view class="title">双人绑定</view>
+    <view class="subtitle">生成绑定码给另一半，或输入对方的绑定码</view>
+    <view class="bind-code">{{bindCode || '------'}}</view>
+    <view wx:if="{{expiredAt}}" class="subtitle">30 分钟内有效</view>
+    <button class="primary-button" bindtap="createCode">生成绑定码</button>
+  </view>
+
+  <view class="section card">
+    <input class="input code-input" placeholder="输入绑定码" maxlength="6" value="{{inputCode}}" bindinput="onCodeInput" />
+    <button class="ghost-button" bindtap="bindPartner">绑定</button>
+  </view>
+</view>

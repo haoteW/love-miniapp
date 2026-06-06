@@ -1,0 +1,12 @@
+.date-picker {
+  margin-top: 32rpx;
+  padding: 28rpx;
+  border-radius: 16rpx;
+  background: #fff7f9;
+  color: #513943;
+  font-size: 32rpx;
+}
+
+.save-button {
+  margin-top: 40rpx;
+}

@@ -1,0 +1,10 @@
+<view class="page">
+  <view class="card">
+    <view class="title">恋爱开始日期</view>
+    <view class="subtitle">设置后首页会展示恋爱天数</view>
+    <picker mode="date" value="{{loveStartDate}}" bindchange="onDateChange">
+      <view class="date-picker">{{loveStartDate || '选择日期'}}</view>
+    </picker>
+  </view>
+  <button class="primary-button save-button" bindtap="save">保存</button>
+</view>

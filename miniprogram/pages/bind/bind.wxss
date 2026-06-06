@@ -1,0 +1,14 @@
+.bind-code {
+  margin: 36rpx 0;
+  color: #f47c9d;
+  font-size: 64rpx;
+  font-weight: 800;
+  letter-spacing: 8rpx;
+  text-align: center;
+}
+
+.code-input {
+  margin-bottom: 24rpx;
+  text-align: center;
+  letter-spacing: 8rpx;
+}

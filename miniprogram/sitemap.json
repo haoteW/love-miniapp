@@ -1,0 +1,9 @@
+{
+  "desc": "恋爱记录 sitemap",
+  "rules": [
+    {
+      "action": "allow",
+      "page": "*"
+    }
+  ]
+}

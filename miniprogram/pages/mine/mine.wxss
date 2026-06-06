@@ -1,0 +1,30 @@
+.profile-card {
+  display: flex;
+  align-items: center;
+}
+
+.avatar {
+  width: 104rpx;
+  height: 104rpx;
+  margin-right: 24rpx;
+  border-radius: 52rpx;
+  background: #fff0f4;
+  color: #f47c9d;
+  font-size: 52rpx;
+  line-height: 104rpx;
+  text-align: center;
+}
+
+.avatar-image {
+  width: 104rpx;
+  height: 104rpx;
+  margin-right: 24rpx;
+  border-radius: 52rpx;
+  background: #fff0f4;
+}
+
+.menu-item {
+  color: #513943;
+  font-size: 30rpx;
+  font-weight: 600;
+}

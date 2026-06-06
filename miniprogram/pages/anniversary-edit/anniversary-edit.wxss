@@ -1,0 +1,10 @@
+.form-page > .input,
+.form-page > picker,
+.form-page > .textarea {
+  display: block;
+  margin-bottom: 24rpx;
+}
+
+.picker-input {
+  line-height: 88rpx;
+}

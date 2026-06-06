@@ -1,0 +1,5 @@
+project.private.config.json
+.tools/
+.DS_Store
+node_modules/
+npm-debug.log*

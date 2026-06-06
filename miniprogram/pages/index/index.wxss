@@ -1,0 +1,115 @@
+.home-page {
+  padding-top: 48rpx;
+}
+
+.hero {
+  padding: 48rpx 32rpx;
+  border-radius: 28rpx;
+  background: linear-gradient(145deg, #f47c9d, #ffb1c4);
+  color: #ffffff;
+  text-align: center;
+}
+
+.hero .subtitle {
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.days {
+  margin: 18rpx 0;
+  font-size: 112rpx;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.hero-button {
+  margin-top: 36rpx;
+  background: #ffffff;
+  color: #f47c9d;
+}
+
+.quick-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20rpx;
+  margin-top: 28rpx;
+}
+
+.quick-item {
+  padding: 34rpx 20rpx;
+  border-radius: 16rpx;
+  background: #ffffff;
+  color: #513943;
+  font-size: 30rpx;
+  font-weight: 600;
+  text-align: center;
+}
+
+.calendar-card {
+  padding-bottom: 24rpx;
+}
+
+.calendar-header {
+  margin-bottom: 24rpx;
+}
+
+.weekday-row,
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.weekday {
+  height: 44rpx;
+  color: #8a6f78;
+  font-size: 24rpx;
+  line-height: 44rpx;
+  text-align: center;
+}
+
+.calendar-day {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 72rpx;
+  color: #513943;
+  font-size: 26rpx;
+}
+
+.calendar-day.is-empty {
+  opacity: 0;
+}
+
+.calendar-day.is-today .calendar-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48rpx;
+  height: 48rpx;
+  border-radius: 24rpx;
+  background: #f47c9d;
+  color: #ffffff;
+}
+
+.record-dots {
+  position: absolute;
+  bottom: 8rpx;
+  left: 50%;
+  display: flex;
+  gap: 6rpx;
+  transform: translateX(-50%);
+}
+
+.record-dot {
+  width: 8rpx;
+  height: 8rpx;
+  border-radius: 4rpx;
+}
+
+.record-dot.female {
+  background: #f47c9d;
+}
+
+.record-dot.male {
+  background: #4a90e2;
+}

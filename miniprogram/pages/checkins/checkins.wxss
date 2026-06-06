@@ -1,0 +1,19 @@
+.list-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.add-button {
+  width: 144rpx;
+  margin: 0;
+}
+
+.checkin-card {
+  margin-top: 24rpx;
+}
+
+.item-title {
+  font-size: 32rpx;
+  font-weight: 700;
+}

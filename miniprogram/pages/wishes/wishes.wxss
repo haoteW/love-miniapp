@@ -1,0 +1,41 @@
+.list-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.add-button {
+  width: 144rpx;
+  margin: 0;
+}
+
+.wish-card {
+  margin-top: 24rpx;
+}
+
+.wish-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.item-title {
+  font-size: 32rpx;
+  font-weight: 700;
+}
+
+.status {
+  padding: 10rpx 18rpx;
+  border-radius: 999rpx;
+  font-size: 24rpx;
+}
+
+.todo {
+  background: #fff0f4;
+  color: #f47c9d;
+}
+
+.done {
+  background: #edf8f1;
+  color: #3a9b64;
+}

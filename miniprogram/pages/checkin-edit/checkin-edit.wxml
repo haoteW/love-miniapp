@@ -1,0 +1,30 @@
+<view class="page form-page">
+  <input class="input" placeholder="约会标题" value="{{title}}" bindinput="onTitleInput" />
+  <picker mode="date" value="{{date}}" bindchange="onDateChange">
+    <view class="date-field">
+      <view class="date-label">打卡日期</view>
+      <view class="date-value">{{date}}</view>
+    </view>
+  </picker>
+  <input class="input" placeholder="地点" value="{{locationName}}" bindinput="onLocationInput" />
+  <textarea class="textarea" placeholder="这次约会有什么特别的？" value="{{note}}" bindinput="onNoteInput" />
+  <view class="image-picker">
+    <view class="image-picker-header">
+      <view class="image-picker-title">照片</view>
+      <view class="image-picker-count">{{images.length}} / 9</view>
+    </view>
+    <view class="image-grid">
+      <image
+        wx:for="{{images}}"
+        wx:key="*this"
+        class="image-thumb"
+        src="{{item}}"
+        mode="aspectFill"
+        data-current="{{item}}"
+        bindtap="previewImage"
+      />
+      <view wx:if="{{images.length < 9}}" class="image-add" bindtap="chooseImages">+</view>
+    </view>
+  </view>
+  <button class="primary-button save-button" bindtap="save">保存</button>
+</view>

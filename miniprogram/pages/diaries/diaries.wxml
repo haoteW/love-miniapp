@@ -1,0 +1,28 @@
+<view class="page">
+  <view class="list-header">
+    <view>
+      <view class="title">恋爱日记</view>
+      <view class="subtitle">把今天的小事认真存起来</view>
+    </view>
+    <button class="ghost-button add-button" bindtap="add">写日记</button>
+  </view>
+
+  <view wx:for="{{items}}" wx:key="id" class="card diary-card">
+    <view class="item-title">{{item.title}}</view>
+    <view class="subtitle">{{item.date}}</view>
+    <view class="content">{{item.content}}</view>
+    <view wx:if="{{item.images && item.images.length}}" class="image-grid">
+      <image
+        wx:for="{{item.images}}"
+        wx:for-item="image"
+        wx:key="*this"
+        class="image-thumb"
+        src="{{image}}"
+        mode="aspectFill"
+        data-current="{{image}}"
+        data-images="{{item.images}}"
+        bindtap="previewImage"
+      />
+    </view>
+  </view>
+</view>

@@ -1,0 +1,46 @@
+.profile-avatar-section {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 32rpx;
+}
+
+.avatar-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 152rpx;
+  height: 152rpx;
+  padding: 0;
+  border-radius: 76rpx;
+  background: #fff0f4;
+}
+
+.profile-avatar-image,
+.profile-avatar-placeholder {
+  width: 152rpx;
+  height: 152rpx;
+  border-radius: 76rpx;
+}
+
+.profile-avatar-placeholder {
+  color: #f47c9d;
+  font-size: 72rpx;
+  line-height: 152rpx;
+  text-align: center;
+}
+
+.visibility-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 32rpx;
+  padding: 24rpx;
+  border-radius: 16rpx;
+  background: #ffffff;
+}
+
+.visibility-title {
+  color: #513943;
+  font-size: 30rpx;
+  font-weight: 600;
+}

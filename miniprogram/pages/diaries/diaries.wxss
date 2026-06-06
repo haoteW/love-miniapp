@@ -1,0 +1,30 @@
+.list-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.add-button {
+  width: 160rpx;
+  margin: 0;
+}
+
+.diary-card {
+  margin-top: 24rpx;
+}
+
+.item-title {
+  font-size: 32rpx;
+  font-weight: 700;
+}
+
+.content {
+  margin-top: 20rpx;
+  color: #513943;
+  font-size: 28rpx;
+  line-height: 1.6;
+}
+
+.diary-card .image-grid {
+  margin-top: 20rpx;
+}

@@ -1,0 +1,16 @@
+<view class="page">
+  <view class="card profile-card" bindtap="goProfile">
+    <image wx:if="{{profile.avatarUrl}}" class="avatar-image" src="{{profile.avatarUrl}}" mode="aspectFill" />
+    <view wx:else class="avatar">❤</view>
+    <view>
+      <view class="title">{{profile.nickName || '恋爱记录'}}</view>
+      <view class="subtitle">{{profile.genderText || '完善资料'}} · {{profile.roleText || '设置身份'}}</view>
+    </view>
+  </view>
+
+  <view class="section card menu-item" bindtap="goProfile">完善资料</view>
+  <view class="section card menu-item" bindtap="goBind">双人绑定</view>
+  <view class="section card menu-item" bindtap="goSetup">恋爱开始日期</view>
+  <view class="section card menu-item" bindtap="setupDatabase">初始化云数据库</view>
+  <view class="section card menu-item">提醒设置</view>
+</view>

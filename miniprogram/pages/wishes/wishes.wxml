@@ -1,0 +1,32 @@
+<view class="page">
+  <view class="list-header">
+    <view>
+      <view class="title">心愿清单</view>
+      <view class="subtitle">想一起完成的事</view>
+    </view>
+    <button class="ghost-button add-button" bindtap="add">新增</button>
+  </view>
+
+  <view wx:for="{{items}}" wx:key="id" class="card wish-card" data-id="{{item._id || item.id}}" bindtap="toggleDone">
+    <view class="wish-row">
+      <view>
+        <view class="item-title">{{item.title}}</view>
+        <view class="subtitle">{{item.date || item.createdAt}} · {{item.category}}</view>
+      </view>
+      <view class="status {{item.status}}">{{item.statusText}}</view>
+    </view>
+    <view wx:if="{{item.images && item.images.length}}" class="image-grid">
+      <image
+        wx:for="{{item.images}}"
+        wx:for-item="image"
+        wx:key="*this"
+        class="image-thumb"
+        src="{{image}}"
+        mode="aspectFill"
+        data-current="{{image}}"
+        data-images="{{item.images}}"
+        catchtap="previewImage"
+      />
+    </view>
+  </view>
+</view>
